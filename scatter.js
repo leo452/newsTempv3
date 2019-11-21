@@ -80,7 +80,7 @@ async function drawScatter() {
       d3.timeParse("%m/%d/%Y")(`1/1/${colorScaleYear}`),
       d3.timeParse("%m/%d/%Y")(`12/31/${colorScaleYear}`),
     ])
-    .interpolator(d => d3.interpolateRainbow(-d))
+    .interpolator(d => d3.interpolateBlues(d))
 
   // 5. Draw data
 
@@ -199,7 +199,7 @@ async function drawScatter() {
     .selectAll("stop")
     .data(stops)
     .enter().append("stop")
-      .attr("stop-color", d => d3.interpolateRainbow(-d))
+      .attr("stop-color", d => d3.interpolateBlues(d))
       .attr("offset", d => `${d * 100}%`)
 
   const legendGradient = legendGroup.append("rect")
